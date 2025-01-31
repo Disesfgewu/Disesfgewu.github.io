@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DisesFgewu (Martin) - GitHub 個人頁面</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+            list-style: none;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 4px;
+            background: #6c757d;
+            margin-left: -2px;
+        }
+        .timeline-item {
+            position: relative;
+            margin: 20px 0;
+        }
+        .timeline-item .timeline-content {
+            position: relative;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            width: 45%;
+        }
+        .timeline-item:nth-child(odd) .timeline-content {
+            float: left;
+            text-align: right;
+        }
+        .timeline-item:nth-child(even) .timeline-content {
+            float: right;
+            text-align: left;
+        }
+        .timeline-item .timeline-marker {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            width: 15px;
+            height: 15px;
+            background: #007bff;
+            border-radius: 50%;
+            transform: translateX(-50%);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark px-3">
+        <a class="navbar-brand" href="#">DisesFgewu (Martin) - 個人 GitHub</a>
+    </nav>
+    
+    <div class="container mt-4">
+        <h2 class="text-primary">個人資訊</h2>
+        <ul>
+            <li><strong>姓名：</strong>陳羿錦</li>
+            <li><strong>學歷：</strong>
+                <ul>
+                    <li>臺北市立明倫高中 (2019 - 2022)</li>
+                    <li>國立臺北科技大學 電資學士班 (2022 - 2026)</li>
+                </ul>
+            </li>
+        </ul>
+        
+        <h2 class="text-success">時間軸 - 重要經歷</h2>
+        <ul class="timeline">
+            <li class="timeline-item"><span class="timeline-marker"></span>
+                <div class="timeline-content">
+                    <h5>2025/01 - 微軟技術型工作坊</h5>
+                    <p>參加微軟 Microsoft 公司 2025 技術型工作坊 結訓</p>
+                </div>
+            </li>
+            <li class="timeline-item"><span class="timeline-marker"></span>
+                <div class="timeline-content">
+                    <h5>2024/07 ~ 08 - 廣盛科技股份有限公司</h5>
+                    <p>擔任系統開發實習生</p>
+                </div>
+            </li>
+            <li class="timeline-item"><span class="timeline-marker"></span>
+                <div class="timeline-content">
+                    <h5>2024/06 - iPAS 認證</h5>
+                    <p>通過物聯網應用工程師、資訊安全工程師 初級認證</p>
+                </div>
+            </li>
+            <li class="timeline-item"><span class="timeline-marker"></span>
+                <div class="timeline-content">
+                    <h5>2024/03 - 北科大程式設計研究社</h5>
+                    <p>擔任機器學習講師</p>
+                </div>
+            </li>
+            <li class="timeline-item"><span class="timeline-marker"></span>
+                <div class="timeline-content">
+                    <h5>2023/12 - CPE 程式能力檢定</h5>
+                    <p>獲得 A 等成績</p>
+                </div>
+            </li>
+            <li class="timeline-item"><span class="timeline-marker"></span>
+                <div class="timeline-content">
+                    <h5>2023/06 - AI-CUP 競賽</h5>
+                    <p>人工智慧比賽獲得排名 130/501</p>
+                </div>
+            </li>
+            <li class="timeline-item"><span class="timeline-marker"></span>
+                <div class="timeline-content">
+                    <h5>2023/05 - 工研院業師專案</h5>
+                    <p>智慧醫療 ChatBot 開發</p>
+                </div>
+            </li>
+            <li class="timeline-item"><span class="timeline-marker"></span>
+                <div class="timeline-content">
+                    <h5>2022/11 - 計算機組織 VHDL 訓練</h5>
+                    <p>學習 VHDL 進行硬體設計與模擬</p>
+                </div>
+            </li>
+            <li class="timeline-item"><span class="timeline-marker"></span>
+                <div class="timeline-content">
+                    <h5>2020/11 - RK-Jetbot 機器學習競賽</h5>
+                    <p>台北世貿 CAVEDU 教育團隊競賽獲得第二名</p>
+                </div>
+            </li>
+            <li class="timeline-item"><span class="timeline-marker"></span>
+                <div class="timeline-content">
+                    <h5>2020/07 - 台科大機器人創客營</h5>
+                    <p>參加機器學習與機器人技術培訓</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <footer class="bg-dark text-light text-center py-3 mt-4">
+        © 2025 DisesFgewu (Martin) - 個人 GitHub 頁面
+    </footer>
+</body>
+</html>
