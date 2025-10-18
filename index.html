@@ -21,13 +21,15 @@
                   linear-gradient(180deg, #ffffff 0%, #f4f6fb 100%);
       border-bottom:1px solid #e7e7ee;
     }
+    /* Avatar（改為讀取 image.jpg） */
     .hero .avatar{
-      width:84px;height:84px;border-radius:50%;background:#e9f2ff;display:grid;place-items:center;
-      font-size:34px;color:#0d6efd;font-weight:700; box-shadow:0 10px 24px rgba(13,110,253,.15), inset 0 0 0 6px #fff;
+      width:96px; height:96px; border-radius:50%; overflow:hidden;
+      box-shadow:0 10px 24px rgba(13,110,253,.15); border:4px solid #fff; background:#fff;
     }
+    .hero .avatar img{ width:100%; height:100%; object-fit:cover; display:block }
     .nav-link{font-weight:600}
     .section-title{font-weight:800; letter-spacing:.5px; margin-bottom:12px}
-    .badge-pill{border-radius:999px; padding:.5rem .8rem; font-weight:600}
+    .badge-pill{border-radius:999px; padding:.5rem .8rem; font-weight:600; white-space:normal} /* 讓長徽章可換行 */
     .soft-card{
       background:#fff;border:1px solid #ececf3;border-radius:16px;padding:18px 20px;
       box-shadow:0 8px 24px rgba(17, 24, 39, .04);
@@ -80,15 +82,21 @@
     <div class="container py-5">
       <div class="row align-items-center gy-4">
         <div class="col-md-1 d-flex justify-content-center justify-content-md-start">
-          <div class="avatar">C</div>
+          <div class="avatar">
+            <img src="image.jpg" alt="陳羿錦（Chen Yi-Jin）頭像" loading="lazy">
+          </div>
         </div>
         <div class="col-md-11">
           <h1 class="display-6 fw-bold mb-2">陳羿錦 Chen Yi-Jin（Martin）</h1>
           <p class="mb-3">國立臺北科技大學 電資學士班｜軟硬體兼修｜AI / 嵌入式 / 資料工程</p>
           <div class="d-flex flex-wrap gap-2">
+            <!-- 重要徽章（置於最前） -->
+            <span class="badge bg-warning text-dark badge-pill">
+              <i class="fa-solid fa-flask-vial me-1"></i>
+              114 學年度 國科會大專生研究計畫通過（編號 114-2813-C-027-059-E，執行中）
+            </span>
             <span class="badge bg-primary badge-pill"><i class="fa-solid fa-certificate me-1"></i> iPAS IoT & ISE</span>
             <span class="badge bg-success badge-pill"><i class="fa-solid fa-language me-1"></i> TOEIC 730</span>
-            <span class="badge bg-dark badge-pill"><i class="fa-solid fa-trophy me-1"></i> 114 學年度 國科會大專生研究計畫通過 </span>
             <span class="badge bg-dark badge-pill"><i class="fa-solid fa-trophy me-1"></i> CPE A 等（前 2.2%）</span>
           </div>
         </div>
@@ -201,7 +209,7 @@
               <li><a target="_blank" href="https://github.com/Disesfgewu/Self-Projects-Data/tree/master/%E5%A4%A7%E5%AD%B8/%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88/%E8%AA%B2%E5%A0%82%E8%A8%93%E7%B7%B4/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88">計算機程式設計（111-1）</a></li>
               <li><a target="_blank" href="https://github.com/Disesfgewu/Self-Projects-Data/tree/master/%E5%A4%A7%E5%AD%B8/%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88/%E8%AA%B2%E5%A0%82%E8%A8%93%E7%B7%B4/%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88">物件導向程式設計（111-2）</a></li>
               <li>線性代數—Python/Matlab 數學模型（111-2）</li>
-              <li><a target="_blank" href="https://github.com/Disesfgewu/Self-Projects-Data/tree/master/%E5%A4%A7%E5%AD%B8/%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88/%E8%AA%B2%E5%A0%82%E8%A8%93%E7%B7%B4/%E8%B3%89%E6%96%99%E7%B5%90%E6%A7%8B">資料結構（112-1, Python）</a></li>
+              <li><a target="_blank" href="https://github.com/Disesfgewu/Self-Projects-Data/tree/master/%E5%A4%A7%E5%AD%B8/%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88/%E8%AA%B2%E5%A0%82%E8%A8%93%E7%B7%B4/%E8%B3%87%E6%96%99%E7%B5%90%E6%A7%8B">資料結構（112-1, Python）</a></li>
               <li><a target="_blank" href="https://github.com/Disesfgewu/Self-Projects-Data/tree/master/%E5%A4%A7%E5%AD%B8/%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88/%E8%AA%B2%E5%A0%82%E8%A8%93%E7%B7%B4/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%B5%84%E7%B9%94/VHDL">計算機組織—VHDL（112-2）</a></li>
               <li><a target="_blank" href="https://github.com/Disesfgewu/Self-Projects-Data/tree/master/%E5%A4%A7%E5%AD%B8/%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88/%E8%AA%B2%E5%A0%82%E8%A8%93%E7%B7%B4/%E5%A4%9A%E5%AA%92%E9%AB%94%E6%8A%80%E8%A1%93%E8%88%87%E6%87%89%E7%94%A8">多媒體技術與應用—AI 訓練與回歸（112-2）</a></li>
               <li><a target="_blank" href="https://github.com/Disesfgewu/Project/tree/martin">人工智慧—AI-CUP 競賽參與（排名 130/934）（113-1）</a></li>
