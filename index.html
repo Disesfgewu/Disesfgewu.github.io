@@ -34,20 +34,44 @@
     .soft-card h5{font-weight:700}
     .list-tight li{margin:.25rem 0}
     a[target=_blank]::after{content:"\f35d";font-family:"Font Awesome 6 Free";font-weight:900;margin-left:.35rem;font-size:.75em;opacity:.6}
-    .timeline{position:relative;margin:0;padding:0;list-style:none}
-    .timeline::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:3px;background:#e5e7eb;transform:translateX(-50%)}
-    .tl-item{position:relative;margin:18px 0}
-    .tl-dot{position:absolute;left:50%;transform:translate(-50%,6px);width:14px;height:14px;background:#0d6efd;border:3px solid #fff;border-radius:50%;box-shadow:0 2px 8px rgba(13,110,253,.35)}
-    .tl-card{width:46%;background:#fff;border:1px solid #ececf3;border-radius:12px;padding:14px 16px;box-shadow:0 8px 24px rgba(17,24,39,.04)}
-    .tl-left{float:left; text-align:right}
-    .tl-right{float:right; text-align:left}
+
+    /* ---------- Timeline (Grid 版本，防跑版) ---------- */
+    .timeline{position:relative; list-style:none; margin:0; padding:0}
+    /* 中央直線 */
+    .timeline::before{
+      content:""; position:absolute; left:50%; top:0; bottom:0; width:3px;
+      background:#e5e7eb; transform:translateX(-50%);
+    }
+    .tl-item{
+      display:grid;
+      grid-template-columns: 1fr 28px 1fr; /* 左卡 / 中間圓點 / 右卡 */
+      align-items:start;
+      column-gap:24px;
+      margin:26px 0;
+      position:relative;
+    }
+    .tl-dot{
+      grid-column:2; justify-self:center; align-self:center;
+      width:14px;height:14px;border-radius:50%;
+      background:#0d6efd; border:3px solid #fff; box-shadow:0 2px 8px rgba(13,110,253,.35);
+    }
+    .tl-card{
+      background:#fff;border:1px solid #ececf3;border-radius:12px;padding:14px 16px;
+      box-shadow:0 8px 24px rgba(17,24,39,.04)
+    }
+    .tl-left{ grid-column:1; text-align:right }
+    .tl-right{ grid-column:3; text-align:left }
     .tl-title{font-weight:700;margin-bottom:4px}
     .tl-time{font-size:.9rem;color:#64748b}
+
+    /* 手機版：單欄，圓點在左側 */
     @media (max-width: 992px){
-      .timeline::before{left:12px;transform:none}
-      .tl-dot{left:12px;transform:none}
-      .tl-card{width:auto;margin-left:32px;float:none;text-align:left}
+      .timeline::before{left:14px; transform:none; width:2px}
+      .tl-item{ grid-template-columns: 28px 1fr; column-gap:16px }
+      .tl-dot{ grid-column:1; justify-self:center }
+      .tl-left, .tl-right{ grid-column:2; text-align:left }
     }
+
     footer{background:#0b1220;color:#cbd5e1;border-top:1px solid #111827;margin-top:48px}
   </style>
 </head>
@@ -92,7 +116,7 @@
               <i class="fa-solid fa-flask-vial me-1"></i>
               114 學年度 國科會大專生研究計畫通過（編號 114-2813-C-027-059-E，執行中）
             </span>
-            <!-- TSMC 學程徽章（新增） -->
+            <!-- TSMC 學程徽章 -->
             <span class="badge bg-secondary badge-pill">
               <i class="fa-solid fa-microchip me-1"></i>
               TSMC 智慧製造產業學程（修讀中，預計 114-1 修畢）
@@ -109,7 +133,7 @@
             <span class="badge bg-light text-dark border badge-pill">
               <i class="fa-solid fa-layer-group me-1"></i> 累計 138 學分
             </span>
-            <span class="badge bg-primary badge-pill"><i class="fa-solid fa-certificate me-1"></i> iPAS IoT & ISE</span
+            <span class="badge bg-primary badge-pill"><i class="fa-solid fa-certificate me-1"></i> iPAS IoT & ISE</span>
           </div>
         </div>
       </div>
@@ -135,7 +159,7 @@
               </li>
               <li class="mt-2"><strong>學程 / 微學程：</strong>
                 <ul class="mb-0">
-                  <li>TSMC 智慧製造產業學程 — 修讀中，預計 114-1修畢</li>
+                  <li>TSMC 智慧製造產業學程 — 修讀中，預計 114-1 修畢</li>
                   <li>北科大 × 北醫大 生醫輔助科技微學程 — 已修畢，預計 114-1 第 13 週申請證書</li>
                   <li>北科大 智慧感測科技微學程 — 已修畢，預計 114-1 第 13 週申請證書</li>
                 </ul>
@@ -210,7 +234,7 @@
   <section id="honors" class="py-4">
     <div class="container">
       <h2 class="section-title"><i class="fa-solid fa-medal me-2 text-primary"></i>榮譽事蹟</h2>
-      <div class="soft-card mb-4">
+    <div class="soft-card mb-4">
         <h5 class="mb-2">校內榮譽</h5>
         <ul class="mb-0">
           <li>111-2 電資學士班 書卷獎（系排第 1）</li>
@@ -291,127 +315,145 @@
     <div class="container">
       <h2 class="section-title"><i class="fa-solid fa-clock-rotate-left me-2 text-primary"></i>時間軸・活動與里程碑</h2>
       <ul class="timeline">
-        <li class="tl-item"><span class="tl-dot"></span>
+        <li class="tl-item">
+          <span class="tl-dot"></span>
           <div class="tl-card tl-right">
             <div class="tl-title">大專生研究計畫</div>
             <div class="tl-time">114/07 ~ 115/02</div>
             <div>執行大專生研究計畫</div>
           </div>
         </li>
-        <li class="tl-item"><span class="tl-dot"></span>
-          <div class="tl-card tl-right">
+        <li class="tl-item">
+          <span class="tl-dot"></span>
+          <div class="tl-card tl-left">
             <div class="tl-title">Gemini Certified Educator</div>
             <div class="tl-time">114/09</div>
             <div>獲 Gemini Certified Educator 證書</div>
           </div>
         </li>
-        <li class="tl-item"><span class="tl-dot"></span>
-          <div class="tl-card tl-left">
+        <li class="tl-item">
+          <span class="tl-dot"></span>
+          <div class="tl-card tl-right">
             <div class="tl-title">2025 年技職杯黑客松 北區分賽</div>
             <div class="tl-time">2025/04</div>
             <div>參與競賽</div>
           </div>
         </li>
-        <li class="tl-item"><span class="tl-dot"></span>
-          <div class="tl-card tl-right">
+        <li class="tl-item">
+          <span class="tl-dot"></span>
+          <div class="tl-card tl-left">
             <div class="tl-title">微軟技術型工作坊</div>
             <div class="tl-time">2025/01</div>
             <div>參加 Microsoft 2025 技術型工作坊 結訓</div>
           </div>
         </li>
-        <li class="tl-item"><span class="tl-dot"></span>
-          <div class="tl-card tl-left">
+        <li class="tl-item">
+          <span class="tl-dot"></span>
+          <div class="tl-card tl-right">
             <div class="tl-title">QSAN 廣盛科技股份有限公司</div>
             <div class="tl-time">2024/07–08</div>
             <div>系統開發 實習生</div>
           </div>
         </li>
-        <li class="tl-item"><span class="tl-dot"></span>
-          <div class="tl-card tl-right">
+        <li class="tl-item">
+          <span class="tl-dot"></span>
+          <div class="tl-card tl-left">
             <div class="tl-title">iPAS 認證</div>
             <div class="tl-time">2024/06</div>
             <div>通過「物聯網應用工程師」「資訊安全工程師」初級認證</div>
           </div>
         </li>
-        <li class="tl-item"><span class="tl-dot"></span>
-          <div class="tl-card tl-left">
+        <li class="tl-item">
+          <span class="tl-dot"></span>
+          <div class="tl-card tl-right">
             <div class="tl-title">北科大 程式設計研究社</div>
             <div class="tl-time">2024/03</div>
             <div>擔任機器學習講師</div>
           </div>
         </li>
-        <li class="tl-item"><span class="tl-dot"></span>
-          <div class="tl-card tl-right">
+        <li class="tl-item">
+          <span class="tl-dot"></span>
+          <div class="tl-card tl-left">
             <div class="tl-title">CPE 程式能力檢定</div>
             <div class="tl-time">2023/12</div>
             <div>A 等（58/2643，前 2.2%）</div>
           </div>
         </li>
-        <li class="tl-item"><span class="tl-dot"></span>
-          <div class="tl-card tl-left">
+        <li class="tl-item">
+          <span class="tl-dot"></span>
+          <div class="tl-card tl-right">
             <div class="tl-title">淡江大學 線上大學體驗課程—物聯網</div>
             <div class="tl-time">2022/03</div>
             <div>結訓</div>
           </div>
         </li>
-        <li class="tl-item"><span class="tl-dot"></span>
-          <div class="tl-card tl-right">
+        <li class="tl-item">
+          <span class="tl-dot"></span>
+          <div class="tl-card tl-left">
             <div class="tl-title">台北市資訊學科能力競賽</div>
             <div class="tl-time">2021/11</div>
             <div>北市賽 佳作</div>
           </div>
         </li>
-        <li class="tl-item"><span class="tl-dot"></span>
-          <div class="tl-card tl-left">
+        <li class="tl-item">
+          <span class="tl-dot"></span>
+          <div class="tl-card tl-right">
             <div class="tl-title">明倫高中 資訊學科能力競賽</div>
             <div class="tl-time">2021/10</div>
             <div>110 學年度 特優</div>
           </div>
         </li>
-        <li class="tl-item"><span class="tl-dot"></span>
-          <div class="tl-card tl-right">
+        <li class="tl-item">
+          <span class="tl-dot"></span>
+          <div class="tl-card tl-left">
             <div class="tl-title">捷運盃高中校際小論文暨專題發表會</div>
             <div class="tl-time">2021/11</div>
             <div>主題：二元搜尋常用演算法實作與比較（海報組）</div>
           </div>
         </li>
-        <li class="tl-item"><span class="tl-dot"></span>
-          <div class="tl-card tl-left">
+        <li class="tl-item">
+          <span class="tl-dot"></span>
+          <div class="tl-card tl-right">
             <div class="tl-title">TOI 線上練習賽</div>
             <div class="tl-time">2021/03</div>
             <div>新手組滿分（國立臺灣師範大學）</div>
           </div>
         </li>
-        <li class="tl-item"><span class="tl-dot"></span>
-          <div class="tl-card tl-right">
+        <li class="tl-item">
+          <span class="tl-dot"></span>
+          <div class="tl-card tl-left">
             <div class="tl-title">APCS 大學程式先修檢測</div>
             <div class="tl-time">2021/01</div>
             <div>觀念 4 級分、實作 3 級分</div>
           </div>
         </li>
-        <li class="tl-item"><span class="tl-dot"></span>
-          <div class="tl-card tl-left">
+        <li class="tl-item">
+          <span class="tl-dot"></span>
+          <div class="tl-card tl-right">
             <div class="tl-title">Nvidia Jetson DLI</div>
             <div class="tl-time">2020/12</div>
             <div>Cavedu & Nvidia 人工智慧課程，完成 DLI 認證</div>
           </div>
         </li>
-        <li class="tl-item"><span class="tl-dot"></span>
-          <div class="tl-card tl-right">
+        <li class="tl-item">
+          <span class="tl-dot"></span>
+          <div class="tl-card tl-left">
             <div class="tl-title">RK-Jetbot 機器學習道路識別競賽</div>
             <div class="tl-time">2020/11</div>
             <div>台北世貿 CAVEDU 教育團隊競賽 — 第二名</div>
           </div>
         </li>
-        <li class="tl-item"><span class="tl-dot"></span>
-          <div class="tl-card tl-left">
+        <li class="tl-item">
+          <span class="tl-dot"></span>
+          <div class="tl-card tl-right">
             <div class="tl-title">台科大 機器人創客營</div>
             <div class="tl-time">2020/09</div>
             <div>國立臺灣科技大學，結訓</div>
           </div>
         </li>
-        <li class="tl-item"><span class="tl-dot"></span>
-          <div class="tl-card tl-right">
+        <li class="tl-item">
+          <span class="tl-dot"></span>
+          <div class="tl-card tl-left">
             <div class="tl-title">明倫高中 資訊學科能力競賽</div>
             <div class="tl-time">2020/07</div>
             <div>109 學年度 特優</div>
