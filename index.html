@@ -1,475 +1,593 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Chen Yi-Jin (Martin)｜個人網站</title>
-  <meta name="description" content="陳羿錦（Chen Yi-Jin, Martin）的個人網站：學歷、學業成績、經歷、證照、專案、榮譽與時間軸" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root{ --brand:#0d6efd; --ink:#1f2937 }
-    html,body{height:100%}
-    body{
-      font-family:"Noto Sans TC", system-ui, -apple-system, Segoe UI, Roboto, Arial, "PingFang TC", "Microsoft JhengHei", sans-serif;
-      color:var(--ink); background:#f7f7fb;
-    }
-    .hero{
-      background: radial-gradient(1200px 600px at 80% -20%, rgba(13,110,253,.15), transparent),
-                  radial-gradient(1000px 500px at -10% 10%, rgba(32,201,151,.12), transparent),
-                  linear-gradient(180deg, #ffffff 0%, #f4f6fb 100%);
-      border-bottom:1px solid #e7e7ee;
-    }
-    .hero .avatar{ width:96px; height:96px; border-radius:50%; overflow:hidden; box-shadow:0 10px 24px rgba(13,110,253,.15); border:4px solid #fff; background:#fff; }
-    .hero .avatar img{ width:100%; height:100%; object-fit:cover; display:block }
-    .nav-link{font-weight:600}
-    .section-title{font-weight:800; letter-spacing:.5px; margin-bottom:12px}
-    .badge-pill{border-radius:999px; padding:.5rem .8rem; font-weight:600; white-space:normal}
-    .soft-card{
-      background:#fff;border:1px solid #ececf3;border-radius:16px;padding:18px 20px;
-      box-shadow:0 8px 24px rgba(17, 24, 39, .04);
-    }
-    .soft-card:hover{ box-shadow:0 12px 32px rgba(17, 24, 39, .06) }
-    .soft-card h5{font-weight:700}
-    .list-tight li{margin:.25rem 0}
-    a[target=_blank]::after{content:"\f35d";font-family:"Font Awesome 6 Free";font-weight:900;margin-left:.35rem;font-size:.75em;opacity:.6}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Martin's Page</title>
+    <meta name="description" content="陳羿錦 (Martin) 的個人網站 - NTUT CS">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    /* ---------- Timeline (Grid 版本，防跑版) ---------- */
-    .timeline{position:relative; list-style:none; margin:0; padding:0}
-    /* 中央直線 */
-    .timeline::before{
-      content:""; position:absolute; left:50%; top:0; bottom:0; width:3px;
-      background:#e5e7eb; transform:translateX(-50%);
-    }
-    .tl-item{
-      display:grid;
-      grid-template-columns: 1fr 28px 1fr; /* 左卡 / 中間圓點 / 右卡 */
-      align-items:start;
-      column-gap:24px;
-      margin:26px 0;
-      position:relative;
-    }
-    .tl-dot{
-      grid-column:2; justify-self:center; align-self:center;
-      width:14px;height:14px;border-radius:50%;
-      background:#0d6efd; border:3px solid #fff; box-shadow:0 2px 8px rgba(13,110,253,.35);
-    }
-    .tl-card{
-      background:#fff;border:1px solid #ececf3;border-radius:12px;padding:14px 16px;
-      box-shadow:0 8px 24px rgba(17,24,39,.04)
-    }
-    .tl-left{ grid-column:1; text-align:right }
-    .tl-right{ grid-column:3; text-align:left }
-    .tl-title{font-weight:700;margin-bottom:4px}
-    .tl-time{font-size:.9rem;color:#64748b}
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --sidebar-bg: #f8f9fa;
+            --text-main: #111111;
+            --text-secondary: #555555;
+            --text-muted: #888888;
+            --border-color: #e5e7eb;
+            --sidebar-width: 280px;
+            --link-color: #000000;
+        }
 
-    /* 手機版：單欄，圓點在左側 */
-    @media (max-width: 992px){
-      .timeline::before{left:14px; transform:none; width:2px}
-      .tl-item{ grid-template-columns: 28px 1fr; column-gap:16px }
-      .tl-dot{ grid-column:1; justify-self:center }
-      .tl-left, .tl-right{ grid-column:2; text-align:left }
-    }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
-    footer{background:#0b1220;color:#cbd5e1;border-top:1px solid #111827;margin-top:48px}
-  </style>
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-main);
+            background-color: var(--bg-color);
+            line-height: 1.7;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        a { text-decoration: none; color: var(--link-color); transition: 0.2s; }
+        a:hover { opacity: 0.7; }
+
+        /* --- Sidebar --- */
+        .sidebar {
+            width: var(--sidebar-width);
+            background-color: var(--sidebar-bg);
+            padding: 3rem 2rem;
+            position: fixed;
+            height: 100vh;
+            border-right: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow-y: auto; /* 允許側邊欄過長時捲動 */
+            z-index: 10;
+        }
+
+        .brand {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            display: block;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links { list-style: none; }
+        .nav-links li { margin-bottom: 0.8rem; }
+        .nav-links a {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+            display: block;
+            padding: 5px 0;
+        }
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--text-main);
+            font-weight: 700;
+            padding-left: 5px; /* 微動效 */
+        }
+
+        .social-links { display: flex; gap: 15px; font-size: 1.2rem; margin-top: 2rem; }
+
+        /* --- Main Content --- */
+        .main-content {
+            margin-left: var(--sidebar-width);
+            flex: 1;
+            padding: 4rem 5rem;
+            max-width: 1100px;
+        }
+
+        section { margin-bottom: 5rem; scroll-margin-top: 2rem; }
+
+        h2 {
+            font-size: 1.75rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            letter-spacing: -0.5px;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--text-main);
+            display: inline-block;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-top: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+        }
+        h3::before {
+            content: '#';
+            color: var(--text-muted);
+            margin-right: 8px;
+            font-family: 'JetBrains Mono';
+        }
+
+        p, li { color: var(--text-secondary); margin-bottom: 0.8rem; }
+        strong { color: var(--text-main); font-weight: 600; }
+
+        /* --- List Styles --- */
+        .styled-list { list-style: none; padding-left: 0; }
+        .styled-list li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 0.5rem;
+        }
+        .styled-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--text-muted);
+        }
+
+        /* --- Timeline (Education & History) --- */
+        .timeline-item {
+            display: flex;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #f3f4f6;
+            padding-bottom: 1.5rem;
+        }
+        .timeline-item:last-child { border-bottom: none; }
+
+        .timeline-date {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            font-weight: 600;
+            width: 140px;
+            flex-shrink: 0;
+            color: var(--text-muted);
+            padding-top: 4px;
+        }
+
+        .timeline-content { flex: 1; }
+        .timeline-title { font-weight: 700; font-size: 1.05rem; margin-bottom: 0.3rem; color: var(--text-main); }
+        .timeline-desc { font-size: 0.95rem; color: var(--text-secondary); }
+
+        /* --- Project Cards --- */
+        .project-group { margin-bottom: 3rem; }
+        
+        .project-item {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.2rem;
+            margin-bottom: 1rem;
+            transition: 0.2s;
+            background: #fff;
+        }
+        .project-item:hover {
+            border-color: var(--text-muted);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.8rem;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .project-name { font-weight: 700; font-size: 1.1rem; }
+        .project-links a {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            background: #f3f4f6;
+            padding: 4px 8px;
+            border-radius: 4px;
+            color: var(--text-secondary);
+        }
+        .project-links a:hover { background: var(--text-main); color: #fff; }
+
+        /* Badges */
+        .badge {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            padding: 3px 8px;
+            border-radius: 99px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .badge-research { background: #fee2e2; color: #991b1b; } /* Red */
+        .badge-dev { background: #dbeafe; color: #1e40af; }      /* Blue */
+        .badge-done { background: #dcfce7; color: #166534; }     /* Green */
+        .badge-gray { background: #f3f4f6; color: #4b5563; }     /* Gray */
+
+        /* --- RWD --- */
+        @media (max-width: 900px) {
+            body { flex-direction: column; }
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                padding: 1.5rem;
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
+            }
+            .brand { margin-bottom: 1rem; }
+            .nav-links { display: flex; gap: 20px; overflow-x: auto; margin-bottom: 0; white-space: nowrap; }
+            .main-content { margin-left: 0; padding: 2rem 1.5rem; }
+            .timeline-item { flex-direction: column; }
+            .timeline-date { margin-bottom: 0.5rem; }
+        }
+    </style>
 </head>
-
 <body>
-  <!-- Top Nav -->
-  <nav class="navbar navbar-expand-lg bg-white border-bottom sticky-top">
-    <div class="container">
-      <a class="navbar-brand fw-bold" href="#">
-        <i class="fa-solid fa-code me-2 text-primary"></i>Chen Yi-Jin (Martin)
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#topnav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div id="topnav" class="collapse navbar-collapse">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="#about">個人資訊</a></li>
-          <li class="nav-item"><a class="nav-link" href="#academics">學業成績</a></li>
-          <li class="nav-item"><a class="nav-link" href="#honors">榮譽事蹟</a></li>
-          <li class="nav-item"><a class="nav-link" href="#projects">專案/學習</a></li>
-          <li class="nav-item"><a class="nav-link" href="#timeline">時間軸</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
 
-  <!-- Hero -->
-  <header class="hero">
-    <div class="container py-5">
-      <div class="row align-items-center gy-4">
-        <div class="col-md-1 d-flex justify-content-center justify-content-md-start">
-          <div class="avatar">
-            <img src="image.jpg" alt="陳羿錦（Chen Yi-Jin）頭像" loading="lazy">
-          </div>
+    <nav class="sidebar">
+        <div>
+            <a href="#" class="brand">Chen Yi-Jin<br>(Martin)</a>
+            <ul class="nav-links">
+                <li><a href="#about" class="active">About & Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#timeline">Timeline & Honors</a></li>
+            </ul>
         </div>
-        <div class="col-md-11">
-          <h1 class="display-6 fw-bold mb-2">陳羿錦 Chen Yi-Jin（Martin）</h1>
-          <p class="mb-3">國立臺北科技大學 電資學士班｜軟硬體兼修｜AI / 嵌入式系統 / IoT 物聯網 / 資料工程</p>
-          <div class="d-flex flex-wrap gap-2">
-            <!-- 重要徽章 -->
-            <span class="badge bg-warning text-dark badge-pill">
-              <i class="fa-solid fa-flask-vial me-1"></i>
-              114 學年度 國科會大專生研究計畫通過（編號 114-2813-C-027-059-E，執行中）
-            </span>
-            <!-- TSMC 學程徽章 -->
-            <span class="badge bg-secondary badge-pill">
-              <i class="fa-solid fa-microchip me-1"></i>
-              TSMC 智慧製造產業學程（修讀中，預計 114-1 修畢）
-            </span>
-            <span class="badge bg-dark badge-pill">
-              <i class="fa-solid fa-trophy me-1"></i> CPE A 等（58/2643，前 2.2%）
-            </span>
-            <span class="badge bg-info text-dark badge-pill">
-              <i class="fa-solid fa-graduation-cap me-1"></i> GPA 3.92 / 4.00
-            </span>
-            <span class="badge bg-secondary badge-pill">
-              <i class="fa-solid fa-ranking-star me-1"></i> 系排 9 / 75（12.0%）
-            </span>
-            <span class="badge bg-light text-dark border badge-pill">
-              <i class="fa-solid fa-layer-group me-1"></i> 累計 138 學分
-            </span>
-            <span class="badge bg-primary badge-pill"><i class="fa-solid fa-certificate me-1"></i> iPAS IoT & ISE</span>
-          </div>
+        
+        <div>
+             <div style="font-family: 'JetBrains Mono'; font-size: 0.8rem; margin-bottom: 1rem; color: #888;">
+                Built with <i class="fas fa-heart text-danger"></i> & Code
+            </div>
+            <div class="social-links">
+                <a href="https://github.com/DisesFgewu" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="mailto:your_email@example.com"><i class="fas fa-envelope"></i></a>
+            </div>
         </div>
-      </div>
-    </div>
-  </header>
+    </nav>
 
-  <!-- About -->
-  <section id="about" class="py-5">
-    <div class="container">
-      <h2 class="section-title"><i class="fa-solid fa-id-card-clip me-2 text-primary"></i>個人資訊</h2>
+    <main class="main-content">
+        
+        <section id="about">
+            <h2>About & Experience</h2>
+            
+            <div class="mb-5">
+                <p>Hi, I'm <strong>Chen Yi-Jin (陳羿錦)</strong>, also known as <strong>Martin</strong>.</p>
+                <p>
+                   目前就讀於<strong>國立臺北科技大學 電資學士班 (資訊工程組)</strong>。
+                   專注於軟硬體整合開發、AI 應用、資料工程與嵌入式系統。
+                   擁有豐富的專案實作經驗，並致力於開源社群與技術分享。
+                </p>
+                <div style="margin-top: 1rem;">
+                    <a href="https://disesfgewu.github.io/" target="_blank" style="display: inline-block; background: #000; color: #fff; padding: 8px 16px; border-radius: 4px; font-weight: 600; font-size: 0.9rem;">
+                        <i class="fas fa-globe me-2"></i> Visit My Website
+                    </a>
+                </div>
+            </div>
 
-      <div class="row g-4">
-        <div class="col-lg-6">
-          <div class="soft-card">
-            <h5 class="mb-3"><i class="fa-solid fa-user me-2 text-primary"></i>基本資料</h5>
-            <ul class="list-unstyled list-tight mb-0">
-              <li><strong>姓名：</strong>陳羿錦</li>
-              <li><strong>學歷：</strong>
-                <ul class="mb-0">
-                  <li>臺北市立明倫高中（2019–2022）</li>
-                  <li>國立臺北科技大學 電資學士班（2022–2026，主修資訊工程系）</li>
+            <div class="row">
+                <div style="margin-bottom: 2rem;">
+                    <h5 style="font-weight: 700; margin-bottom: 1rem;">Education</h5>
+                    <ul class="styled-list">
+                        <li><strong>國立臺北科技大學</strong> 電資學士班 (2022 - 2026)</li>
+                        <li><strong>臺北市立明倫高中</strong> (2019 - 2022)</li>
+                    </ul>
+                </div>
+
+                <div style="margin-bottom: 2rem;">
+                    <h5 style="font-weight: 700; margin-bottom: 1rem;">Experience</h5>
+                    <ul class="styled-list">
+                        <li><strong>系統開發實習生</strong> @ QSAN 廣盛科技股份有限公司</li>
+                        <li><strong>公關長</strong> @ 北科大 程式設計研究社 & GDSC</li>
+                        <li><strong>系學會活動股長</strong> @ 北科大 電資學士班</li>
+                        <li><strong>教學股長</strong> @ 明倫高中 程式設計社</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h5 style="font-weight: 700; margin-bottom: 1rem;">Licenses & Certifications</h5>
+                    <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                        <span style="background:#eee; padding:4px 10px; border-radius:4px; font-size:0.85rem;">TOEIC 730</span>
+                        <span style="background:#eee; padding:4px 10px; border-radius:4px; font-size:0.85rem;">iPAS 資訊安全工程師 (初級)</span>
+                        <span style="background:#eee; padding:4px 10px; border-radius:4px; font-size:0.85rem;">iPAS 物聯網應用工程師 (初級)</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Projects</h2>
+
+            <div class="project-group">
+                <h3>Research Plans</h3>
+                <div class="project-item">
+                    <div class="project-header">
+                        <span class="project-name">NSTC 大專生研究計畫</span>
+                        <span class="badge badge-research">In Progress</span>
+                    </div>
+                    <p class="timeline-desc">基於無人機多視角物件偵測與輕量化模型的嵌入式系統研究。</p>
+                </div>
+                <div class="project-item">
+                    <div class="project-header">
+                        <span class="project-name">OS2D 單樣本物件偵測模型研究</span>
+                        <span class="badge badge-research">Research</span>
+                    </div>
+                    <p class="timeline-desc">基於無梯度通道重要性評估之通道剪枝策略，應用於 OS2D 模型之研究。</p>
+                    <div class="project-links">
+                        <a href="https://github.com/Disesfgewu/ntut-project-in-os2d-channel-prune" target="_blank"><i class="fab fa-github"></i> Source</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-group">
+                <h3>University Projects</h3>
+                
+                <div class="project-item">
+                    <div class="project-header">
+                        <span class="project-name">PTSD Game Framework 遊戲復刻</span>
+                        <span class="badge badge-dev">Java</span>
+                    </div>
+                    <p class="timeline-desc">物件導向程式設計實習 - 基於 NTUT open source 之 PTSD game framework 開發。</p>
+                    <div class="project-links">
+                        <a href="https://github.com/Disesfgewu/2025OOPL_project.git" target="_blank"><i class="fab fa-github"></i> Source</a>
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-header">
+                        <span class="project-name">工研院智慧醫療 ChatBot</span>
+                        <span class="badge badge-done">Completed</span>
+                    </div>
+                    <p class="timeline-desc">人工智慧課程業師專案，整合 NLP 技術之醫療諮詢機器人。</p>
+                    <div class="project-links">
+                        <a href="https://github.com/Disesfgewu/Self-Projects-Data/tree/master/%E5%A4%A7%E5%AD%B8/%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88/%E8%AA%B2%E5%A0%82%E8%A8%93%E7%B7%B4/%E4%BA%BA%E5%B7%A5%E6%99%BA%E6%85%A7/%E5%B7%A5%E7%A0%94%E9%99%A2%E6%A5%AD%E5%B8%AB%E5%B0%88%E6%A1%88/chatbot" target="_blank"><i class="fab fa-github"></i> Source</a>
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-header">
+                        <span class="project-name">Mini-Python Compiler</span>
+                        <span class="badge badge-dev">OCaml</span>
+                    </div>
+                    <p class="timeline-desc">編譯器原理實作 (通過率 81%)。</p>
+                    <div class="project-links">
+                        <a href="https://github.com/Disesfgewu/Self-Projects-Data/tree/master/%E5%A4%A7%E5%AD%B8/%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88/%E8%AA%B2%E5%A0%82%E8%A8%93%E7%B7%B4/%E7%B7%A8%E8%AD%AF%E5%99%A8%E5%8E%9F%E7%90%86/Project" target="_blank"><i class="fab fa-github"></i> Source</a>
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-header">
+                        <span class="project-name">Others (Courseworks)</span>
+                        <span class="badge badge-gray">Archive</span>
+                    </div>
+                    <ul class="styled-list" style="font-size: 0.9rem;">
+                        <li>人工智慧 - AI-CUP 競賽 (Rank 130/934) <a href="https://github.com/Disesfgewu/Project/tree/martin">[Link]</a></li>
+                        <li>資料結構 (Python) <a href="https://github.com/Disesfgewu/Self-Projects-Data/tree/master/%E5%A4%A7%E5%AD%B8/%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88/%E8%AA%B2%E5%A0%82%E8%A8%93%E7%B7%B4/%E8%B3%87%E6%96%99%E7%B5%90%E6%A7%8B">[Link]</a></li>
+                        <li>計算機組織 (VHDL) <a href="https://github.com/Disesfgewu/Self-Projects-Data/tree/master/%E5%A4%A7%E5%AD%B8/%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88/%E8%AA%B2%E5%A0%82%E8%A8%93%E7%B7%B4/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%B5%84%E7%B9%94/VHDL">[Link]</a></li>
+                        <li>多媒體技術與應用 (AI 訓練) <a href="https://github.com/Disesfgewu/Self-Projects-Data/tree/master/%E5%A4%A7%E5%AD%B8/%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88/%E8%AA%B2%E5%A0%82%E8%A8%93%E7%B7%B4/%E5%A4%9A%E5%AA%92%E9%AB%94%E6%8A%80%E8%A1%93%E8%88%87%E6%87%89%E7%94%A8">[Link]</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="project-group">
+                <h3>Self-Learning & Side Projects</h3>
+                
+                 <div class="project-item">
+                    <div class="project-header">
+                        <span class="project-name">Taiwan Stock Quant Analysis Platform</span>
+                        <span class="badge badge-dev">Dev</span>
+                    </div>
+                    <p class="timeline-desc">台灣股市量化分析與模擬交易平台 (開發中)。</p>
+                    <div class="project-links">
+                        <a href="https://github.com/Disesfgewu/interact-stock-platform-taiwan.git" target="_blank"><i class="fab fa-github"></i> Source</a>
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-header">
+                        <span class="project-name">Python AI 物件偵測模擬</span>
+                        <span class="badge badge-done">Study</span>
+                    </div>
+                    <p class="timeline-desc">參考「Python機器學習超進化」，實作 Haar 特徵模型與物件偵測。</p>
+                    <div class="project-links">
+                        <a href="https://github.com/Disesfgewu/Self-Projects-Data/tree/master/%E5%A4%A7%E5%AD%B8/%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88/%E8%AA%B2%E5%A4%96%E8%87%AA%E5%AD%B8/Python%20AI%20%E7%89%A9%E4%BB%B6%E5%81%B5%E6%B8%AC%E8%88%87%20Haar%20%E7%89%B9%E5%BE%B5%E6%A8%A1%E5%9E%8B%E6%A8%A1%E6%93%AC%E5%B0%88%E9%A1%8C%E5%AF%A6%E4%BD%9C" target="_blank"><i class="fab fa-github"></i> Source</a>
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-header">
+                        <span class="project-name">Web Crawlers Collection</span>
+                        <span class="badge badge-gray">Python</span>
+                    </div>
+                    <p class="timeline-desc">包含 YouTube MP3 下載器、北科官網爬蟲、輔大金融系專題爬蟲程式。</p>
+                    <div class="project-links">
+                        <a href="https://github.com/Disesfgewu/Self-Projects-Data/tree/master/%E5%A4%A7%E5%AD%B8/%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88/%E8%AA%B2%E5%A4%96%E8%87%AA%E5%AD%B8" target="_blank"><i class="fab fa-github"></i> View All</a>
+                    </div>
+                </div>
+            </div>
+
+             <div class="project-group">
+                <h3>High School Archive</h3>
+                <ul class="styled-list">
+                    <li><a href="https://github.com/Disesfgewu/Self-Projects-Data/tree/master/%E9%AB%98%E4%B8%AD/Python%20%E8%87%AA%E4%B8%BB%E5%AD%B8%E7%BF%92/%E6%8D%B7%E9%81%8B%E7%9B%83%E5%B0%8F%E8%AB%96%E6%96%87" target="_blank">捷運盃小論文 - 二分搜尋樹演算法實作與比較</a></li>
+                    <li><a href="https://github.com/Disesfgewu/Self-Projects-Data/tree/master/%E9%AB%98%E4%B8%AD/%E8%A7%A3%E9%A1%8C/zerojudge/Code" target="_blank">Zerojudge 解題訓練 (C++ / Python)</a></li>
                 </ul>
-              </li>
-              <li class="mt-2"><strong>學程 / 微學程：</strong>
-                <ul class="mb-0">
-                  <li>TSMC 智慧製造產業學程 — 修讀中，預計 114-1 修畢</li>
-                  <li>北科大 × 北醫大 生醫輔助科技微學程 — 已修畢，預計 114-1 第 13 週申請證書</li>
-                  <li>北科大 智慧感測科技微學程 — 已修畢，預計 114-1 第 13 週申請證書</li>
-                </ul>
-              </li>
-              <li class="mt-2"><strong>社團 / 幹部：</strong>
-                <ul class="mb-0">
-                  <li>明倫高中 程式設計社 教學股長</li>
-                  <li>北科大 電資學士班 系學會 活動股長</li>
-                  <li>北科大 程式設計研究社 & GDSC 公關長</li>
-                </ul>
-              </li>
-              <li class="mt-2"><strong>校外 / 產學 / 實習：</strong>
-                <ul class="mb-0">
-                  <li>QSAN 廣盛科技股份有限公司 系統開發 實習生</li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-        </div>
+            </div>
 
-        <div class="col-lg-6">
-          <div class="soft-card">
-            <h5 class="mb-3"><i class="fa-solid fa-award me-2 text-primary"></i>證照與檢定</h5>
-            <ul class="mb-0">
-              <li>APCS 大學程式先修檢測</li>
-              <li>Nvidia Jetson DLI 認證</li>
-              <li>CPE 大學程式能力檢定 A 等（前 2.2%）</li>
-              <li>iPAS 物聯網應用工程師 初級（2024/06）</li>
-              <li>iPAS 資訊安全工程師 初級（2024/06）</li>
-              <li>Gemini Certified Educator（2025/09）</li>
-            </ul>
-            <ul class="mb-0">
-              <li class="mt-2"><strong>語言檢定：</strong>TOEIC 730</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+        </section>
 
-  <!-- Academics -->
-  <section id="academics" class="py-4">
-    <div class="container">
-      <h2 class="section-title"><i class="fa-solid fa-graduation-cap me-2 text-primary"></i>學業成績與排名</h2>
-      <div class="row g-4">
-        <div class="col-lg-6">
-          <div class="soft-card">
-            <h5 class="mb-2">整體成績</h5>
-            <ul class="mb-0">
-              <li><strong>累計系排：</strong>9 / 75（12.0%）</li>
-              <li><strong>學業平均：</strong>89.89（已修習 138 學分）</li>
-              <li><strong>累計 GPA：</strong>3.92 / 4.00</li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-lg-6">
-          <div class="soft-card">
-            <h5 class="mb-2">重點科目成績</h5>
-            <ul class="mb-0">
-              <li>資料結構 99、作業系統 99、微算機系統 99</li>
-              <li>數位影像處理 98、計算機程式語言 98、物件導向程式設計 98</li>
-              <li>計算機組織 96、數位邏輯設計 96、編譯器原理 95</li>
-              <li>多媒體技術與應用 93、數位系統設計 92、訊號與系統 93</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+        <section id="timeline">
+            <h2>Timeline & Honors</h2>
+            
+            <div class="timeline-item">
+                <div class="timeline-date">2025/07 - 2026/02</div>
+                <div class="timeline-content">
+                    <div class="timeline-title">NSTC 大專生研究計畫</div>
+                    <div class="timeline-desc">執行國科會計畫。</div>
+                </div>
+            </div>
 
-  <!-- Honors -->
-  <section id="honors" class="py-4">
-    <div class="container">
-      <h2 class="section-title"><i class="fa-solid fa-medal me-2 text-primary"></i>榮譽事蹟</h2>
-    <div class="soft-card mb-4">
-        <h5 class="mb-2">校內榮譽</h5>
-        <ul class="mb-0">
-          <li>111-2 電資學士班 書卷獎（系排第 1）</li>
-          <li>111-1 電資學士班 書卷獎（系排第 2）</li>
-          <li>112-1 電資學士班 三育獎</li>
-          <li>114 學年度 國科會大專生研究計畫通過（編號 114-2813-C-027-059-E，執行中）</li>
-        </ul>
-      </div>
-      <div class="soft-card">
-        <h5 class="mb-2">競賽 / 活動成績</h5>
-        <ul class="mb-0">
-          <li>AI-CUP 發電量預測競賽：<strong>第 130 / 934 名</strong></li>
-          <li>永豐 AI GO 競賽「股神對決」：<strong>第 136 / 868 名</strong></li>
-          <li>教育部「創新設計與智慧輔具」工作坊：結訓（2024/12）</li>
-          <li>Microsoft 技術型工作坊：結訓（2025/01）</li>
-          <li>2025 技職杯黑客松 北區分賽：參與（2025/04）</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+            <div class="timeline-item">
+                <div class="timeline-date">2025/04</div>
+                <div class="timeline-content">
+                    <div class="timeline-title">2025 技職杯黑客松 北區分賽</div>
+                    <div class="timeline-desc">參與競賽。</div>
+                </div>
+            </div>
 
-  <!-- Projects & Learning -->
-  <section id="projects" class="py-5">
-    <div class="container">
-      <h2 class="section-title"><i class="fa-solid fa-folder-tree me-2 text-primary"></i>個人專案資料</h2>
+            <div class="timeline-item">
+                <div class="timeline-date">2025/01</div>
+                <div class="timeline-content">
+                    <div class="timeline-title">Microsoft 技術型工作坊</div>
+                    <div class="timeline-desc">微軟公司主辦，結訓。</div>
+                </div>
+            </div>
 
-      <div class="soft-card mb-4">
-        <h5 class="mb-2">高中資料</h5>
-        <ul class="mb-0">
-          <li><a target="_blank" href="https://github.com/Disesfgewu/Self-Projects-Data/tree/master/%E9%AB%98%E4%B8%AD/Python%20%E8%87%AA%E4%B8%BB%E5%AD%B8%E7%BF%92/Code%20%E8%B3%87%E6%96%99">Python 自主學習 - 練習 code 資料</a></li>
-          <li><a target="_blank" href="https://github.com/Disesfgewu/Self-Projects-Data/tree/master/%E9%AB%98%E4%B8%AD/Python%20%E8%87%AA%E4%B8%BB%E5%AD%B8%E7%BF%92/%E6%8D%B7%E9%81%8B%E7%9B%83%E5%B0%8F%E8%AB%96%E6%96%87">捷運盃小論文 - 二分搜尋樹演算法實作與比較</a></li>
-          <li><a target="_blank" href="https://github.com/Disesfgewu/Self-Projects-Data/tree/master/%E9%AB%98%E4%B8%AD/%E8%A7%A3%E9%A1%8C/zerojudge/Code">Zerojudge 解題訓練（C++ / Python）</a></li>
-        </ul>
-      </div>
+            <div class="timeline-item">
+                <div class="timeline-date">2024/12</div>
+                <div class="timeline-content">
+                    <div class="timeline-title">創新設計與智慧輔具工作坊</div>
+                    <div class="timeline-desc">教育部人文社科教育苗圃分區資源中心計畫，結訓。</div>
+                </div>
+            </div>
 
-      <div class="soft-card mb-4">
-        <h5 class="mb-2">大學資料</h5>
-        <ul>
-          <li><strong>專題</strong>
-            <ul>
-              <li><a target="_blank" href="https://github.com/Disesfgewu/ntut-project-in-os2d-channel-prune">校內專題：基於無梯度通道重要性評估之通道剪枝策略，應用於 OS2D 單樣本物件偵測模型之研究</a></li>
-              <li>大專生研究計畫：基於無人機多視角物件偵測與輕量化模型的嵌入式系統研究</li>
-            </ul>
-          </li>
-          <li><strong>課堂訓練</strong>
-            <ul>
-              <li><a target="_blank" href="https://github.com/Disesfgewu/Self-Projects-Data/tree/master/%E5%A4%A7%E5%AD%B8/%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88/%E8%AA%B2%E5%A0%82%E8%A8%93%E7%B7%B4/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88">計算機程式設計（111-1）</a></li>
-              <li><a target="_blank" href="https://github.com/Disesfgewu/Self-Projects-Data/tree/master/%E5%A4%A7%E5%AD%B8/%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88/%E8%AA%B2%E5%A0%82%E8%A8%93%E7%B7%B4/%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88">物件導向程式設計（111-2）</a></li>
-              <li>線性代數—Python/Matlab 數學模型（111-2）</li>
-              <li><a target="_blank" href="https://github.com/Disesfgewu/Self-Projects-Data/tree/master/%E5%A4%A7%E5%AD%B8/%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88/%E8%AA%B2%E5%A0%82%E8%A8%93%E7%B7%B4/%E8%B3%87%E6%96%99%E7%B5%90%E6%A7%8B">資料結構（112-1, Python）</a></li>
-              <li><a target="_blank" href="https://github.com/Disesfgewu/Self-Projects-Data/tree/master/%E5%A4%A7%E5%AD%B8/%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88/%E8%AA%B2%E5%A0%82%E8%A8%93%E7%B7%B4/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%B5%84%E7%B9%94/VHDL">計算機組織—VHDL（112-2）</a></li>
-              <li><a target="_blank" href="https://github.com/Disesfgewu/Project/tree/martin">人工智慧—AI-CUP 競賽參與（排名 130/934）（113-1）</a></li>
-              <li><a target="_blank" href="https://github.com/Disesfgewu/Self-Projects-Data/tree/master/%E5%A4%A7%E5%AD%B8/%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88/%E8%AA%B2%E5%A0%82%E8%A8%93%E7%B7%B4/%E4%BA%BA%E5%B7%A5%E6%99%BA%E6%85%A7/%E5%B7%A5%E7%A0%94%E9%99%A2%E6%A5%AD%E5%B8%AB%E5%B0%88%E6%A1%88/chatbot">人工智慧—工研院業師專案：智慧醫療 ChatBot（113-1）</a></li>
-              <li><a target="_blank" href="https://github.com/Disesfgewu/Self-Projects-Data/tree/master/%E5%A4%A7%E5%AD%B8/%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88/%E8%AA%B2%E5%A0%82%E8%A8%93%E7%B7%B4/%E7%B7%A8%E8%AD%AF%E5%99%A8%E5%8E%9F%E7%90%86/Project">編譯器原理—Mini-Python（OCaml, 通過率 81%）（113-1）</a></li>
-              <li>資料庫系統—購物網站實作（113-1）</li>
-              <li><a target="_blank" href="https://github.com/Disesfgewu/2025OOPL_project.git">物件導向程式設計實習—PTSD Game Framework 遊戲復刻（113-2）</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
+            <div class="timeline-item">
+                <div class="timeline-date">2024/07 - 2024/08</div>
+                <div class="timeline-content">
+                    <div class="timeline-title">QSAN 廣盛科技股份有限公司</div>
+                    <div class="timeline-desc">系統開發實習生。</div>
+                </div>
+            </div>
 
-      <div class="soft-card">
-        <h5 class="mb-2">課外自學</h5>
-        <ul class="mb-0">
-          <li><a target="_blank" href="https://github.com/Disesfgewu/Self-Projects-Data/tree/master/%E5%A4%A7%E5%AD%B8/%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88/%E8%AA%B2%E5%A4%96%E8%87%AA%E5%AD%B8">課外自學專案彙整</a></li>
-          <li><a target="_blank" href="https://github.com/Disesfgewu/Self-Projects-Data/tree/master/%E5%A4%A7%E5%AD%B8/%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88/%E8%AA%B2%E5%A0%82%E8%A8%93%E7%B7%B4/%E8%AA%B2%E5%A4%96%E8%87%AA%E5%AD%B8/Python%20AI%20%E7%89%A9%E4%BB%B6%E5%81%B5%E6%B8%AC%E8%88%87%20Haar%20%E7%89%B9%E5%BE%B5%E6%A8%A1%E5%9E%8B%E6%A8%A1%E6%93%AC%E5%B0%88%E9%A1%8C%E5%AF%A6%E4%BD%9C">個人模擬專題—Python AI 物件偵測</a></li>
-          <li><a target="_blank" href="https://github.com/Disesfgewu/Self-Projects-Data/tree/master/%E5%A4%A7%E5%AD%B8/%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88/%E8%AA%B2%E5%A0%82%E8%A8%93%E7%B7%B4/%E8%AA%B2%E5%A4%96%E8%87%AA%E5%AD%B8/%E7%88%AC%E8%9F%B2%E8%A8%93%E7%B7%B4%20-%20%E5%8C%97%E7%A7%91%E5%AE%98%E7%B6%B2%E8%B3%87%E6%96%99">爬蟲訓練—北科官網資料爬取</a></li>
-          <li><a target="_blank" href="https://github.com/Disesfgewu/Self-Projects-Data/tree/master/Microsoft2025">Microsoft2025 技術型工作坊 參與</a></li>
-          <li><a target="_blank" href="https://github.com/Disesfgewu/Self-Projects-Data/tree/master/%E5%A4%A7%E5%AD%B8/%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88/%E8%AA%B2%E5%A4%96%E8%87%AA%E5%AD%B8/R%20%E8%AA%9E%E8%A8%80%E5%9F%BA%E7%A4%8E%20-%20%E5%AD%B8%E7%BF%92">R 語言基礎學習</a></li>
-          <li>天主教輔仁大學金融系專題爬蟲程式開發（Python）</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+            <div class="timeline-item">
+                <div class="timeline-date">2024/06</div>
+                <div class="timeline-content">
+                    <div class="timeline-title">iPAS 國家級認證</div>
+                    <div class="timeline-desc">通過「物聯網應用工程師」與「資訊安全工程師」初級認證。</div>
+                </div>
+            </div>
 
-  <!-- Timeline -->
-  <section id="timeline" class="py-5">
-    <div class="container">
-      <h2 class="section-title"><i class="fa-solid fa-clock-rotate-left me-2 text-primary"></i>時間軸・活動與里程碑</h2>
-      <ul class="timeline">
-        <li class="tl-item">
-          <span class="tl-dot"></span>
-          <div class="tl-card tl-right">
-            <div class="tl-title">大專生研究計畫</div>
-            <div class="tl-time">114/07 ~ 115/02</div>
-            <div>執行大專生研究計畫</div>
-          </div>
-        </li>
-        <li class="tl-item">
-          <span class="tl-dot"></span>
-          <div class="tl-card tl-left">
-            <div class="tl-title">Gemini Certified Educator</div>
-            <div class="tl-time">114/09</div>
-            <div>獲 Gemini Certified Educator 證書</div>
-          </div>
-        </li>
-        <li class="tl-item">
-          <span class="tl-dot"></span>
-          <div class="tl-card tl-right">
-            <div class="tl-title">2025 年技職杯黑客松 北區分賽</div>
-            <div class="tl-time">2025/04</div>
-            <div>參與競賽</div>
-          </div>
-        </li>
-        <li class="tl-item">
-          <span class="tl-dot"></span>
-          <div class="tl-card tl-left">
-            <div class="tl-title">微軟技術型工作坊</div>
-            <div class="tl-time">2025/01</div>
-            <div>參加 Microsoft 2025 技術型工作坊 結訓</div>
-          </div>
-        </li>
-        <li class="tl-item">
-          <span class="tl-dot"></span>
-          <div class="tl-card tl-right">
-            <div class="tl-title">QSAN 廣盛科技股份有限公司</div>
-            <div class="tl-time">2024/07–08</div>
-            <div>系統開發 實習生</div>
-          </div>
-        </li>
-        <li class="tl-item">
-          <span class="tl-dot"></span>
-          <div class="tl-card tl-left">
-            <div class="tl-title">iPAS 認證</div>
-            <div class="tl-time">2024/06</div>
-            <div>通過「物聯網應用工程師」「資訊安全工程師」初級認證</div>
-          </div>
-        </li>
-        <li class="tl-item">
-          <span class="tl-dot"></span>
-          <div class="tl-card tl-right">
-            <div class="tl-title">北科大 程式設計研究社</div>
-            <div class="tl-time">2024/03</div>
-            <div>擔任機器學習講師</div>
-          </div>
-        </li>
-        <li class="tl-item">
-          <span class="tl-dot"></span>
-          <div class="tl-card tl-left">
-            <div class="tl-title">CPE 程式能力檢定</div>
-            <div class="tl-time">2023/12</div>
-            <div>A 等（58/2643，前 2.2%）</div>
-          </div>
-        </li>
-        <li class="tl-item">
-          <span class="tl-dot"></span>
-          <div class="tl-card tl-right">
-            <div class="tl-title">淡江大學 線上大學體驗課程—物聯網</div>
-            <div class="tl-time">2022/03</div>
-            <div>結訓</div>
-          </div>
-        </li>
-        <li class="tl-item">
-          <span class="tl-dot"></span>
-          <div class="tl-card tl-left">
-            <div class="tl-title">台北市資訊學科能力競賽</div>
-            <div class="tl-time">2021/11</div>
-            <div>北市賽 佳作</div>
-          </div>
-        </li>
-        <li class="tl-item">
-          <span class="tl-dot"></span>
-          <div class="tl-card tl-right">
-            <div class="tl-title">明倫高中 資訊學科能力競賽</div>
-            <div class="tl-time">2021/10</div>
-            <div>110 學年度 特優</div>
-          </div>
-        </li>
-        <li class="tl-item">
-          <span class="tl-dot"></span>
-          <div class="tl-card tl-left">
-            <div class="tl-title">捷運盃高中校際小論文暨專題發表會</div>
-            <div class="tl-time">2021/11</div>
-            <div>主題：二元搜尋常用演算法實作與比較（海報組）</div>
-          </div>
-        </li>
-        <li class="tl-item">
-          <span class="tl-dot"></span>
-          <div class="tl-card tl-right">
-            <div class="tl-title">TOI 線上練習賽</div>
-            <div class="tl-time">2021/03</div>
-            <div>新手組滿分（國立臺灣師範大學）</div>
-          </div>
-        </li>
-        <li class="tl-item">
-          <span class="tl-dot"></span>
-          <div class="tl-card tl-left">
-            <div class="tl-title">APCS 大學程式先修檢測</div>
-            <div class="tl-time">2021/01</div>
-            <div>觀念 4 級分、實作 3 級分</div>
-          </div>
-        </li>
-        <li class="tl-item">
-          <span class="tl-dot"></span>
-          <div class="tl-card tl-right">
-            <div class="tl-title">Nvidia Jetson DLI</div>
-            <div class="tl-time">2020/12</div>
-            <div>Cavedu & Nvidia 人工智慧課程，完成 DLI 認證</div>
-          </div>
-        </li>
-        <li class="tl-item">
-          <span class="tl-dot"></span>
-          <div class="tl-card tl-left">
-            <div class="tl-title">RK-Jetbot 機器學習道路識別競賽</div>
-            <div class="tl-time">2020/11</div>
-            <div>台北世貿 CAVEDU 教育團隊競賽 — 第二名</div>
-          </div>
-        </li>
-        <li class="tl-item">
-          <span class="tl-dot"></span>
-          <div class="tl-card tl-right">
-            <div class="tl-title">台科大 機器人創客營</div>
-            <div class="tl-time">2020/09</div>
-            <div>國立臺灣科技大學，結訓</div>
-          </div>
-        </li>
-        <li class="tl-item">
-          <span class="tl-dot"></span>
-          <div class="tl-card tl-left">
-            <div class="tl-title">明倫高中 資訊學科能力競賽</div>
-            <div class="tl-time">2020/07</div>
-            <div>109 學年度 特優</div>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </section>
+            <div class="timeline-item">
+                <div class="timeline-date">2024/03</div>
+                <div class="timeline-content">
+                    <div class="timeline-title">北科大 程式設計研究社</div>
+                    <div class="timeline-desc">擔任機器學習講師。</div>
+                </div>
+            </div>
 
-  <footer class="py-4">
-    <div class="container small d-flex flex-wrap justify-content-between">
-      <div>© 2025 Chen Yi-Jin（Martin）— 個人網站</div>
-      <div class="text-end">Built with GitHub Pages & Bootstrap</div>
-    </div>
-  </footer>
+            <div class="timeline-item">
+                <div class="timeline-date">2023/12</div>
+                <div class="timeline-content">
+                    <div class="timeline-title">CPE 大學程式能力檢定</div>
+                    <div class="timeline-desc">獲得 A 等成績。</div>
+                </div>
+            </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+            <div class="timeline-item">
+                <div class="timeline-date">2022/03</div>
+                <div class="timeline-content">
+                    <div class="timeline-title">淡江大學 線上大學體驗課程</div>
+                    <div class="timeline-desc">物聯網課程，結訓。</div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">2021/11</div>
+                <div class="timeline-content">
+                    <div class="timeline-title">台北市資訊學科能力競賽</div>
+                    <div class="timeline-desc">110 學年度 北市賽 佳作。</div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">2021/11</div>
+                <div class="timeline-content">
+                    <div class="timeline-title">捷運盃高中校際小論文暨專題發表會</div>
+                    <div class="timeline-desc">海報組，主題：二元搜尋常用演算法實作與比較。</div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">2021/10</div>
+                <div class="timeline-content">
+                    <div class="timeline-title">明倫高中 資訊學科能力競賽</div>
+                    <div class="timeline-desc">110 學年度 特優。</div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">2021/03</div>
+                <div class="timeline-content">
+                    <div class="timeline-title">TOI 線上練習賽</div>
+                    <div class="timeline-desc">國立臺灣師範大學主辦，新手組滿分。</div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">2021/01</div>
+                <div class="timeline-content">
+                    <div class="timeline-title">APCS 大學程式先修檢測</div>
+                    <div class="timeline-desc">觀念 4 級分 / 實作 3 級分。</div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">2020/12</div>
+                <div class="timeline-content">
+                    <div class="timeline-title">Nvidia Jetson DLI 認證</div>
+                    <div class="timeline-desc">Cavedu & Nvidia 人工智慧課程。</div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">2020/11</div>
+                <div class="timeline-content">
+                    <div class="timeline-title">RK-Jetbot 機器學習道路識別競賽</div>
+                    <div class="timeline-desc">台北世貿 CAVEDU 教育團隊競賽，第二名。</div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">2020/09</div>
+                <div class="timeline-content">
+                    <div class="timeline-title">台科大 機器人創客營</div>
+                    <div class="timeline-desc">國立臺灣科技大學，結訓。</div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">2020/07</div>
+                <div class="timeline-content">
+                    <div class="timeline-title">明倫高中 資訊學科能力競賽</div>
+                    <div class="timeline-desc">109 學年度 特優。</div>
+                </div>
+            </div>
+            
+        </section>
+
+    </main>
+
+    <script>
+        // Active link switching
+        const links = document.querySelectorAll('.nav-links a');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            document.querySelectorAll('section').forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+            links.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
